@@ -48,7 +48,9 @@ static NSString * const reuseIdentifier = @"HeroCell";
             self.heroesArray = heroesArray;
             
             
-            [self.collectionView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [self.collectionView reloadData];
+            });
             
         } else {
             [self showAlertWithTitle:@"Error gathering heroes" andMessage: error.localizedDescription];

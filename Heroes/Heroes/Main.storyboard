@@ -13,26 +13,26 @@
         <scene sceneID="cy0-kw-TwG">
             <objects>
                 <collectionViewController id="8Ad-ji-xtJ" customClass="HeroesCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Swq-3e-Q5P">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Swq-3e-Q5P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="rZG-71-8jI">
-                            <size key="itemSize" width="100" height="100"/>
+                            <size key="itemSize" width="75" height="75"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeroCell" id="eWH-kV-Nxo" customClass="HeroCollectionViewCell">
-                                <rect key="frame" x="2" y="2" width="100" height="100"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="HeroCell" id="eWH-kV-Nxo" customClass="HeroCollectionViewCell">
+                                <rect key="frame" x="2" y="2" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q2k-3s-JmJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
                                         </imageView>
                                     </subviews>
                                 </view>
@@ -42,7 +42,7 @@
                                     <constraint firstAttribute="bottom" secondItem="q2k-3s-JmJ" secondAttribute="bottom" id="vmH-rU-LNW"/>
                                     <constraint firstItem="q2k-3s-JmJ" firstAttribute="top" secondItem="eWH-kV-Nxo" secondAttribute="top" id="vuq-cD-h0C"/>
                                 </constraints>
-                                <size key="customSize" width="100" height="100"/>
+                                <size key="customSize" width="75" height="75"/>
                                 <connections>
                                     <outlet property="heroImageView" destination="q2k-3s-JmJ" id="BSh-2x-L07"/>
                                 </connections>
