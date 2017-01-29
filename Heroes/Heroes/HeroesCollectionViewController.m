@@ -7,6 +7,7 @@
 //
 
 #import "HeroesCollectionViewController.h"
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
 @interface HeroesCollectionViewController ()
 
@@ -45,9 +46,10 @@ static NSString * const reuseIdentifier = @"HeroCell";
     [self.heroClient fetchHeroesWithOffset: self.offset completion:^(NSMutableArray *heroesArray, NSError *error) {
         
         if (error == nil) {
+            
             self.heroesArray = heroesArray;
             
-            
+            self.offset += 20;
             dispatch_async(dispatch_get_main_queue(), ^ {
                 [self.collectionView reloadData];
             });
@@ -56,6 +58,31 @@ static NSString * const reuseIdentifier = @"HeroCell";
             [self showAlertWithTitle:@"Error gathering heroes" andMessage: error.localizedDescription];
         }
         
+    }];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        
+        [strongSelf.heroClient fetchHeroesWithOffset:strongSelf.offset completion:^(NSMutableArray *heroesArray, NSError *error) {
+            
+            if (error == nil) {
+                
+                strongSelf.heroesArray = heroesArray;
+                
+                strongSelf.offset += 20;
+                [strongSelf.collectionView.infiniteScrollingView stopAnimating];
+                dispatch_async(dispatch_get_main_queue(), ^ {
+                    [strongSelf.collectionView reloadData];
+                });
+                
+            } else {
+                [strongSelf showAlertWithTitle:@"Error gathering heroes" andMessage:error.localizedDescription];
+            }
+            
+        }];
     }];
     
 }
