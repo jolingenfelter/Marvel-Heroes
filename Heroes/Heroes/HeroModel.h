@@ -14,6 +14,7 @@
 @property (nonatomic) NSString *heroDescription;
 @property (nonatomic) NSString *thumbnailPath;
 @property (nonatomic) NSString *characterResourceURL;
+@property (nonatomic) NSString *wikipediaURL;
 
 - (id) initWithJSON: (NSDictionary *) json;
 

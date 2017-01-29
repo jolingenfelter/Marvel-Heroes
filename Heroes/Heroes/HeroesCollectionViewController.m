@@ -87,15 +87,16 @@ static NSString * const reuseIdentifier = @"HeroCell";
     
 }
 
-/*
+
  #pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+ - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     NSArray *indexPaths = self.collectionView.indexPathsForSelectedItems;
+     NSIndexPath *indexPath = indexPaths[0];
+     HeroModel *hero = self.heroesArray[indexPath.row];
+     NSLog(@"%@", hero.name);
  }
- */
+
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -123,15 +124,6 @@ static NSString * const reuseIdentifier = @"HeroCell";
     
     
     return cell;
-}
-
-#pragma mark StoryBoard
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSArray *indexPaths = self.collectionView.indexPathsForSelectedItems;
-    NSIndexPath *indexPath = indexPaths[0];
-    HeroModel *hero = self.heroesArray[indexPath.row];
-    NSLog(@"%@", hero.name);
 }
 
 #pragma mark - Alert

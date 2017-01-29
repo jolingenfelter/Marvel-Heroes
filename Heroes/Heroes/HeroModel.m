@@ -28,6 +28,12 @@
         self.characterResourceURL = [characterInfoURLS[0] objectForKey:@"url"];
     }
     
+    if ([[characterInfoURLS[1] objectForKey:@"url"] length] == 0) {
+        self.wikipediaURL = @"No wiki url";
+    }else {
+        self.wikipediaURL = [characterInfoURLS[1] objectForKey:@"url"];
+    }
+    
     return self;
     
 }

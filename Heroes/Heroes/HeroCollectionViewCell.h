@@ -11,7 +11,7 @@
 
 @interface HeroCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *heroImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *heroImageView;
 @property (nonatomic, strong) NSString *imageURLString;
 
 - (void) setImage;

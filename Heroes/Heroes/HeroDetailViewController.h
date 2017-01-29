@@ -10,4 +10,9 @@
 
 @interface HeroDetailViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView *heroImageView;
+@property (nonatomic, weak) IBOutlet UITextView *descriptionTextView;
+@property (nonatomic, weak) IBOutlet UIButton *wikiButton;
+@property (nonatomic, weak) IBOutlet UIButton *resourceButton;
+
 @end

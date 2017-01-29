@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="916" y="-124.58770614692655"/>
         </scene>
-        <!--View Controller-->
+        <!--Hero Detail View Controller-->
         <scene sceneID="LQG-Dd-Wkp">
             <objects>
-                <viewController id="aUu-fO-KX3" sceneMemberID="viewController">
+                <viewController id="aUu-fO-KX3" customClass="HeroDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Egz-Ay-aHb"/>
                         <viewControllerLayoutGuide type="bottom" id="zDj-I9-5Iy"/>
@@ -71,12 +72,70 @@
                     <view key="view" contentMode="scaleToFill" id="SMJ-iy-g5k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7d9-Ll-HfU">
+                                <rect key="frame" x="103" y="104" width="168" height="252"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252" id="8ym-dx-5KD"/>
+                                    <constraint firstAttribute="width" constant="168" id="y5E-qP-Ode"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-aV-1kb">
+                                <rect key="frame" x="209" y="587" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.2455091968" green="0.49880435420000002" blue="0.67470320230000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="2k3-5A-vDE"/>
+                                    <constraint firstAttribute="height" constant="40" id="oDt-5h-PVP"/>
+                                </constraints>
+                                <state key="normal" title="Character Wiki">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw8-ZC-ENs">
+                                <rect key="frame" x="16" y="587" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.2455091968" green="0.49880435420000002" blue="0.67470320230000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1Xc-sS-jwS"/>
+                                    <constraint firstAttribute="width" constant="150" id="eS3-78-eJw"/>
+                                </constraints>
+                                <state key="normal" title="Character Resource">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dlp-gJ-FwM">
+                                <rect key="frame" x="67" y="376" width="240" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="IaZ-HI-fRz"/>
+                                    <constraint firstAttribute="height" constant="160" id="gKy-Xp-ilV"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7d9-Ll-HfU" firstAttribute="centerX" secondItem="SMJ-iy-g5k" secondAttribute="centerX" id="DYZ-4c-vUi"/>
+                            <constraint firstItem="7d9-Ll-HfU" firstAttribute="top" secondItem="Egz-Ay-aHb" secondAttribute="bottom" constant="40" id="Kh5-4F-BQO"/>
+                            <constraint firstItem="Dlp-gJ-FwM" firstAttribute="top" secondItem="7d9-Ll-HfU" secondAttribute="bottom" constant="20" id="OCN-Sz-Gsx"/>
+                            <constraint firstItem="OQn-aV-1kb" firstAttribute="trailing" secondItem="SMJ-iy-g5k" secondAttribute="trailingMargin" id="QKa-4r-ABP"/>
+                            <constraint firstItem="vw8-ZC-ENs" firstAttribute="leading" secondItem="SMJ-iy-g5k" secondAttribute="leadingMargin" id="iLN-Vv-Xp6"/>
+                            <constraint firstItem="zDj-I9-5Iy" firstAttribute="top" secondItem="vw8-ZC-ENs" secondAttribute="bottom" constant="40" id="j9f-JL-5cm"/>
+                            <constraint firstItem="zDj-I9-5Iy" firstAttribute="top" secondItem="OQn-aV-1kb" secondAttribute="bottom" constant="40" id="tyR-PN-pel"/>
+                            <constraint firstItem="Dlp-gJ-FwM" firstAttribute="centerX" secondItem="SMJ-iy-g5k" secondAttribute="centerX" id="xkQ-wl-YPU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="Dlp-gJ-FwM" id="t7Y-GE-z0i"/>
+                        <outlet property="heroImageView" destination="7d9-Ll-HfU" id="fYT-rb-7nv"/>
+                        <outlet property="resourceButton" destination="vw8-ZC-ENs" id="Qco-n2-mXo"/>
+                        <outlet property="wikiButton" destination="OQn-aV-1kb" id="gqr-Rw-Dpg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gW8-1r-AQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="-125"/>
+            <point key="canvasLocation" x="1701.5999999999999" y="-125.4872563718141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F5d-19-alv">
