@@ -15,7 +15,9 @@
     NSString *imageURL = [NSString stringWithFormat:@"%@/standard_medium.jpg", self.imageURLString];
     ImageGetter *imageGetter = [[ImageGetter alloc] initWithURLString:imageURL];
     [imageGetter getImage:^(UIImage *heroThumbnail) {
-        self.heroImageView.image = heroThumbnail;
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            self.heroImageView.image = heroThumbnail;
+        });
     }];
 }
 

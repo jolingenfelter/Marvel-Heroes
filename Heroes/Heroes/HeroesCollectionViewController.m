@@ -115,16 +115,21 @@ static NSString * const reuseIdentifier = @"HeroCell";
     
     // Configure the cell
     cell.imageURLString = hero.thumbnailPath;
-    [cell setImage];
+    //[cell setImage];
+    
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        [cell setImage];
+    });
     
     
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
+#pragma mark StoryBoard
 
-- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSArray *indexPaths = self.collectionView.indexPathsForSelectedItems;
+    NSIndexPath *indexPath = indexPaths[0];
     HeroModel *hero = self.heroesArray[indexPath.row];
     NSLog(@"%@", hero.name);
 }
