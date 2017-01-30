@@ -150,10 +150,11 @@
         <scene sceneID="sJA-C1-gUP">
             <objects>
                 <viewController id="BDG-8e-TZc" customClass="HeroWebInfoViewController" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" id="STR-f5-tN4">
+                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="STR-f5-tN4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <dataDetectorType key="dataDetectorTypes"/>
                     </webView>
                     <connections>
                         <outlet property="webView" destination="STR-f5-tN4" id="W7d-cm-Vw6"/>
