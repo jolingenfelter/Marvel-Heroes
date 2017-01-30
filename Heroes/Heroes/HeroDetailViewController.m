@@ -25,7 +25,8 @@
 - (void) navBarSetup {
     
     self.title = [NSString stringWithFormat:@"%@", self.hero.name];
-    
+    self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationController.navigationBar.topItem.backBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState: UIControlStateNormal];
 }
 
 - (void) viewSetup {
