@@ -92,7 +92,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BDG-8e-TZc" kind="show" id="wPu-aU-biS"/>
+                                    <segue destination="BDG-8e-TZc" kind="show" identifier="ShowWiki" id="wPu-aU-biS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw8-ZC-ENs">
@@ -107,7 +107,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BDG-8e-TZc" kind="show" id="FNv-69-xgj"/>
+                                    <segue destination="BDG-8e-TZc" kind="show" identifier="ShowResource" id="FNv-69-xgj"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlp-gJ-FwM">

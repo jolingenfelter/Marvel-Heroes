@@ -8,6 +8,7 @@
 
 #import "HeroDetailViewController.h"
 #import "ImageGetter.h"
+#import "HeroWebInfoViewController.h"
 
 @interface HeroDetailViewController ()
 
@@ -55,11 +56,33 @@
     } else {
         [self.resourceButton setEnabled:true];
     }
+    
+    self.resourceButton.layer.cornerRadius = 3;
+    self.resourceButton.layer.masksToBounds = true;
+    
+    self.wikiButton.layer.cornerRadius = 3;
+    self.wikiButton.layer.masksToBounds = true;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    HeroWebInfoViewController *webInfoViewController = segue.destinationViewController;
+    
+    if ([segue.identifier isEqualToString:@"ShowResource"]) {
+       
+        webInfoViewController.urlString = self.hero.characterResourceURL;
+        
+    }
+    
+    if ([segue.identifier isEqualToString:@"ShowWiki"]) {
+        
+        webInfoViewController.urlString = self.hero.wikipediaURL;
+    }
 }
 
 @end
