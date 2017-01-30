@@ -87,9 +87,13 @@
                                     <constraint firstAttribute="width" constant="150" id="2k3-5A-vDE"/>
                                     <constraint firstAttribute="height" constant="40" id="oDt-5h-PVP"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Character Wiki">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BDG-8e-TZc" kind="show" id="wPu-aU-biS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw8-ZC-ENs">
                                 <rect key="frame" x="16" y="587" width="150" height="40"/>
@@ -98,11 +102,15 @@
                                     <constraint firstAttribute="height" constant="40" id="1Xc-sS-jwS"/>
                                     <constraint firstAttribute="width" constant="150" id="eS3-78-eJw"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Character Resource">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BDG-8e-TZc" kind="show" id="FNv-69-xgj"/>
+                                </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dlp-gJ-FwM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlp-gJ-FwM">
                                 <rect key="frame" x="67" y="376" width="240" height="160"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -138,6 +146,23 @@
             </objects>
             <point key="canvasLocation" x="1701.5999999999999" y="-125.4872563718141"/>
         </scene>
+        <!--Hero Web Info View Controller-->
+        <scene sceneID="sJA-C1-gUP">
+            <objects>
+                <viewController id="BDG-8e-TZc" customClass="HeroWebInfoViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="STR-f5-tN4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
+                    <connections>
+                        <outlet property="webView" destination="STR-f5-tN4" id="W7d-cm-Vw6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j2Z-gn-02A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2430" y="-125"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="F5d-19-alv">
             <objects>
@@ -158,4 +183,7 @@
             <point key="canvasLocation" x="-23.199999999999999" y="-124.58770614692655"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wPu-aU-biS"/>
+    </inferredMetricsTieBreakers>
 </document>
