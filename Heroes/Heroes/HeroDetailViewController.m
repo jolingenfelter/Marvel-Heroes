@@ -7,6 +7,7 @@
 //
 
 #import "HeroDetailViewController.h"
+#import "ImageGetter.h"
 
 @interface HeroDetailViewController ()
 
@@ -16,22 +17,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self navBarSetup];
+    [self viewSetup];
+}
+
+- (void) navBarSetup {
+    
+    self.title = [NSString stringWithFormat:@"%@", self.hero.name];
+    
+}
+
+- (void) viewSetup {
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@/portrait_fantastic.jpg", self.hero.thumbnailPath];
+    ImageGetter *imageGetter = [[ImageGetter alloc] initWithURLString: imageURL];
+    [imageGetter getImage:^(UIImage *heroThumbnail) {
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            self.heroImageView.image = heroThumbnail;
+        });
+    }];
+    
+    if ([self.hero.heroDescription isEqualToString: @""] ) {
+        self.descriptionTextView.text = @"Description unavailable for this hero";
+    } else {
+        self.descriptionTextView.text = self.hero.heroDescription;
+    }
+    
+    if ([self.hero.wikipediaURL isEqualToString:@""]) {
+        [self.wikiButton setEnabled:false];
+    } else {
+        [self.wikiButton setEnabled:true];
+    }
+    
+    if ([self.hero.characterResourceURL isEqualToString: @""]) {
+        [self.resourceButton setEnabled:false];
+    } else {
+        [self.resourceButton setEnabled:true];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

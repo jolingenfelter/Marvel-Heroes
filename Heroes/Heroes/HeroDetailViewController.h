@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HeroModel.h"
 
 @interface HeroDetailViewController : UIViewController
 
+@property (nonatomic, strong) HeroModel *hero;
 @property (nonatomic, weak) IBOutlet UIImageView *heroImageView;
 @property (nonatomic, weak) IBOutlet UITextView *descriptionTextView;
 @property (nonatomic, weak) IBOutlet UIButton *wikiButton;

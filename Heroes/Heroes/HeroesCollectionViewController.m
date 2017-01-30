@@ -8,6 +8,7 @@
 
 #import "HeroesCollectionViewController.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
+#import "HeroDetailViewController.h"
 
 @interface HeroesCollectionViewController ()
 
@@ -91,10 +92,15 @@ static NSString * const reuseIdentifier = @"HeroCell";
  #pragma mark - Navigation
  
  - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     NSArray *indexPaths = self.collectionView.indexPathsForSelectedItems;
-     NSIndexPath *indexPath = indexPaths[0];
-     HeroModel *hero = self.heroesArray[indexPath.row];
-     NSLog(@"%@", hero.name);
+     
+     if ([segue.identifier isEqualToString:@"showHeroInfo"]) {
+         NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
+         HeroModel *hero = self.heroesArray[indexPath.row];
+         
+         HeroDetailViewController *detailView = segue.destinationViewController;
+         detailView.hero = hero;
+     }
+    
  }
 
 
@@ -118,11 +124,9 @@ static NSString * const reuseIdentifier = @"HeroCell";
     cell.imageURLString = hero.thumbnailPath;
     //[cell setImage];
     
-    dispatch_async(dispatch_get_main_queue(), ^ {
-        [cell setImage];
-    });
-    
-    
+   
+    [cell setImage];
+ 
     return cell;
 }
 

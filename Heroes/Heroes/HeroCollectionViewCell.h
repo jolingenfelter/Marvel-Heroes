@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ImageGetter.h"
+
 
 @interface HeroCollectionViewCell : UICollectionViewCell
 
