@@ -50,7 +50,7 @@ static NSString * const reuseIdentifier = @"HeroCell";
         
         if (error == nil) {
             
-            self.heroesArray = heroesArray;
+            [self.heroesArray addObjectsFromArray:heroesArray];
             
             self.offset += 20;
             dispatch_async(dispatch_get_main_queue(), ^ {
@@ -73,7 +73,7 @@ static NSString * const reuseIdentifier = @"HeroCell";
             
             if (error == nil) {
                 
-                strongSelf.heroesArray = heroesArray;
+                [strongSelf.heroesArray addObjectsFromArray:heroesArray];
                 
                 strongSelf.offset += 20;
                 [strongSelf.collectionView.infiniteScrollingView stopAnimating];
