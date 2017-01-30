@@ -9,9 +9,10 @@
 #import "ImageViewerViewController.h"
 #import "ImageGetter.h"
 
-@interface ImageViewerViewController ()
+@interface ImageViewerViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) ImageGetter *imageGetter;
 
 @end
@@ -22,12 +23,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    // ScrollView Setup
+    self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView.delegate = self;
+    self.scrollView.minimumZoomScale = 1.0;
+    self.scrollView.maximumZoomScale = 6.0;
+    self.scrollView.scrollEnabled = true;
+    self.scrollView.contentSize = self.imageView.frame.size;
+    [self.view addSubview: self.scrollView];
+    [self.scrollView addSubview: self.imageView];
     
     // ImageView Setup
-    self.imageView = [[UIImageView alloc] init];
+    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.imageView];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.contentMode = UIViewContentModeCenter;
     [self imageViewConstraints];
     
     // Image Setup
@@ -49,12 +60,12 @@
 
 - (void) imageViewConstraints {
     
-    self.imageView.translatesAutoresizingMaskIntoConstraints = false;
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = false;
     
-    [self.imageView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = true;
-    [self.imageView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = true;
-    [self.imageView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = true;
-    [self.imageView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = true;
+    [self.scrollView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = true;
+    [self.scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = true;
+    [self.scrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = true;
+    [self.scrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = true;
     
 }
 
@@ -65,6 +76,12 @@
 
 - (void) dismissSelf {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+#pragma mark - ScrollView Delegate
+
+- (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
 }
 
 @end
