@@ -9,6 +9,7 @@
 #import "HeroDetailViewController.h"
 #import "ImageGetter.h"
 #import "HeroWebInfoViewController.h"
+#import "ImageViewerViewController.h"
 
 @interface HeroDetailViewController ()
 
@@ -21,6 +22,11 @@
     
     [self navBarSetup];
     [self viewSetup];
+    
+    // Gesture Recognizer
+    self.heroImageView.userInteractionEnabled = true;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displayImageViewer)];
+    [self.heroImageView addGestureRecognizer:tap];
 }
 
 - (void) navBarSetup {
@@ -83,6 +89,20 @@
         
         webInfoViewController.urlString = self.hero.wikipediaURL;
     }
+}
+
+#pragma mark - Gestures
+
+- (void) displayImageViewer {
+    
+    ImageViewerViewController *imageViewer = [[ImageViewerViewController alloc] init];
+    imageViewer.imageURL = self.hero.thumbnailPath;
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:imageViewer];
+    [navController.navigationBar setTintColor:[UIColor whiteColor]];
+    [navController.navigationBar setBarTintColor: [UIColor colorWithRed:63/255.0 green:127/255.0 blue:172/255.0 alpha:1.0]];
+    
+    [self presentViewController:navController animated:true completion:nil];
 }
 
 @end

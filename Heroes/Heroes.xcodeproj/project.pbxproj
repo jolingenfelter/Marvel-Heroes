@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E65A6FC1E3EA50A00ABABDF /* HeroDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E65A6FB1E3EA50A00ABABDF /* HeroDetailViewController.m */; };
+		9E84D0AF1E3FE2710017B536 /* ImageViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E84D0AE1E3FE2710017B536 /* ImageViewerViewController.m */; };
 		9E85668C1E3F6962000CE922 /* HeroWebInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E85668B1E3F6962000CE922 /* HeroWebInfoViewController.m */; };
 		9E90182E1E3E6E2E00EEE10D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90182D1E3E6E2E00EEE10D /* main.m */; };
 		9E9018311E3E6E2E00EEE10D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9018301E3E6E2E00EEE10D /* AppDelegate.m */; };
@@ -28,6 +29,8 @@
 		45726C3989889E4D59570548 /* libPods-Heroes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Heroes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E65A6FA1E3EA50A00ABABDF /* HeroDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDetailViewController.h; sourceTree = "<group>"; };
 		9E65A6FB1E3EA50A00ABABDF /* HeroDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroDetailViewController.m; sourceTree = "<group>"; };
+		9E84D0AD1E3FE2710017B536 /* ImageViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewerViewController.h; sourceTree = "<group>"; };
+		9E84D0AE1E3FE2710017B536 /* ImageViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewerViewController.m; sourceTree = "<group>"; };
 		9E85668A1E3F6962000CE922 /* HeroWebInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroWebInfoViewController.h; sourceTree = "<group>"; };
 		9E85668B1E3F6962000CE922 /* HeroWebInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroWebInfoViewController.m; sourceTree = "<group>"; };
 		9E9018291E3E6E2E00EEE10D /* Heroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +133,8 @@
 				9E65A6FB1E3EA50A00ABABDF /* HeroDetailViewController.m */,
 				9E85668A1E3F6962000CE922 /* HeroWebInfoViewController.h */,
 				9E85668B1E3F6962000CE922 /* HeroWebInfoViewController.m */,
+				9E84D0AD1E3FE2710017B536 /* ImageViewerViewController.h */,
+				9E84D0AE1E3FE2710017B536 /* ImageViewerViewController.m */,
 			);
 			path = Heroes;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				9E9018481E3E6EC300EEE10D /* HeroCollectionViewCell.m in Sources */,
 				9E9018311E3E6E2E00EEE10D /* AppDelegate.m in Sources */,
 				9E90184E1E3E6F8400EEE10D /* HeroModel.m in Sources */,
+				9E84D0AF1E3FE2710017B536 /* ImageViewerViewController.m in Sources */,
 				9E9018451E3E6E7300EEE10D /* APIClient.m in Sources */,
 				9E90182E1E3E6E2E00EEE10D /* main.m in Sources */,
 				9E85668C1E3F6962000CE922 /* HeroWebInfoViewController.m in Sources */,
