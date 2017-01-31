@@ -21,12 +21,7 @@ static NSString * const reuseIdentifier = @"HeroCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    self.navigationController.navigationBar.topItem.title = @"Marvel Heroes";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self navBarSetup];
     
     // Initialize Variables
     self.heroClient = [[MarvelHeroClient alloc] init];
@@ -35,6 +30,13 @@ static NSString * const reuseIdentifier = @"HeroCell";
     
     [self fetchHeroes];
     
+}
+
+- (void) navBarSetup {
+    self.navigationController.navigationBar.topItem.title = @"Marvel Heroes";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {

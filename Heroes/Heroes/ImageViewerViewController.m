@@ -25,21 +25,8 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     
-    // ScrollView Setup
-    self.scrollView = [[UIScrollView alloc] init];
-    self.scrollView.delegate = self;
-    self.scrollView.minimumZoomScale = 1.0;
-    self.scrollView.maximumZoomScale = 6.0;
-    self.scrollView.scrollEnabled = true;
-    self.scrollView.contentSize = self.imageView.image.size;
-    [self.view addSubview: self.scrollView];
-    [self scrollViewConstraints];
-    
-    // ImageView Setup
-    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.imageView];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.scrollView addSubview: self.imageView];
+    [self scrollViewSetup];
+    [self imageViewSetup];
     
     // Image Setup
     NSString *completeImageURLString = [NSString stringWithFormat:@"%@/portrait_incredible.jpg", self.imageURL];
@@ -52,13 +39,19 @@
         });
     }];
     
-    // Close Button
-    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 30, 40)];
-    [closeButton setTitle:@"X" forState: UIControlStateNormal];
-    [closeButton.titleLabel setTextColor: [UIColor whiteColor]];
-    [closeButton.titleLabel setFont:[UIFont systemFontOfSize:30]];
-    [closeButton addTarget:self action:@selector(dismissSelf) forControlEvents: UIControlEventTouchUpInside];
-    [self.view addSubview:closeButton];
+    [self closeButtonSetup];
+}
+
+#pragma mark - ViewSetup
+
+- (void) scrollViewSetup {
+    self.scrollView.delegate = self;
+    self.scrollView.minimumZoomScale = 1.0;
+    self.scrollView.maximumZoomScale = 6.0;
+    self.scrollView.scrollEnabled = true;
+    self.scrollView.contentSize = self.imageView.image.size;
+    [self.view addSubview: self.scrollView];
+    [self scrollViewConstraints];
 }
 
 - (void) scrollViewConstraints {
@@ -71,6 +64,23 @@
     [self.scrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = true;
     
 }
+
+- (void) imageViewSetup {
+    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.imageView];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.scrollView addSubview: self.imageView];
+}
+
+- (void) closeButtonSetup {
+    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 30, 40)];
+    [closeButton setTitle:@"X" forState: UIControlStateNormal];
+    [closeButton.titleLabel setTextColor: [UIColor whiteColor]];
+    [closeButton.titleLabel setFont:[UIFont systemFontOfSize:30]];
+    [closeButton addTarget:self action:@selector(dismissSelf) forControlEvents: UIControlEventTouchUpInside];
+    [self.view addSubview:closeButton];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
