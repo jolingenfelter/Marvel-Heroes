@@ -31,15 +31,15 @@
     self.scrollView.minimumZoomScale = 1.0;
     self.scrollView.maximumZoomScale = 6.0;
     self.scrollView.scrollEnabled = true;
-    self.scrollView.contentSize = self.imageView.frame.size;
+    self.scrollView.contentSize = self.imageView.image.size;
     [self.view addSubview: self.scrollView];
-    [self.scrollView addSubview: self.imageView];
+    [self scrollViewConstraints];
     
     // ImageView Setup
     self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.imageView];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self imageViewConstraints];
+    [self.scrollView addSubview: self.imageView];
     
     // Image Setup
     NSString *completeImageURLString = [NSString stringWithFormat:@"%@/portrait_incredible.jpg", self.imageURL];
@@ -61,7 +61,7 @@
     [self.view addSubview:closeButton];
 }
 
-- (void) imageViewConstraints {
+- (void) scrollViewConstraints {
     
     self.scrollView.translatesAutoresizingMaskIntoConstraints = false;
     
