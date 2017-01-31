@@ -53,7 +53,7 @@
     }];
     
     // Close Button
-    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 30, 10)];
+    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 30, 40)];
     [closeButton setTitle:@"X" forState: UIControlStateNormal];
     [closeButton.titleLabel setTextColor: [UIColor whiteColor]];
     [closeButton.titleLabel setFont:[UIFont systemFontOfSize:30]];
