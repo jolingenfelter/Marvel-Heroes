@@ -38,7 +38,7 @@
     // ImageView Setup
     self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.imageView];
-    self.imageView.contentMode = UIViewContentModeCenter;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self imageViewConstraints];
     
     // Image Setup
@@ -52,10 +52,13 @@
         });
     }];
     
-    // NavBarSetup
-    self.navigationController.hidesBarsOnTap = true;
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style: UIBarButtonItemStyleDone target: self action:@selector(dismissSelf)];
-    self.navigationItem.leftBarButtonItem = closeButton;
+    // Close Button
+    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 30, 10)];
+    [closeButton setTitle:@"X" forState: UIControlStateNormal];
+    [closeButton.titleLabel setTextColor: [UIColor whiteColor]];
+    [closeButton.titleLabel setFont:[UIFont systemFontOfSize:30]];
+    [closeButton addTarget:self action:@selector(dismissSelf) forControlEvents: UIControlEventTouchUpInside];
+    [self.view addSubview:closeButton];
 }
 
 - (void) imageViewConstraints {
@@ -75,7 +78,15 @@
 }
 
 - (void) dismissSelf {
-    [self dismissViewControllerAnimated:true completion:nil];
+
+    [UIView animateWithDuration:.45 animations:^{self.view.transform = CGAffineTransformMakeScale(.01, .01);
+        self.navigationController.navigationBar.hidden = true;
+        self.view.alpha = 0;
+    }
+                     completion:^(BOOL finished) {
+                         [self dismissViewControllerAnimated:YES completion:nil];
+                     }];
+
 }
 
 #pragma mark - ScrollView Delegate

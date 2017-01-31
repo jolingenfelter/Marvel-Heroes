@@ -98,11 +98,8 @@
     ImageViewerViewController *imageViewer = [[ImageViewerViewController alloc] init];
     imageViewer.imageURL = self.hero.thumbnailPath;
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:imageViewer];
-    [navController.navigationBar setTintColor:[UIColor whiteColor]];
-    [navController.navigationBar setBarTintColor: [UIColor colorWithRed:63/255.0 green:127/255.0 blue:172/255.0 alpha:1.0]];
-    
-    [self presentViewController:navController animated:true completion:nil];
+    [self presentViewController:imageViewer animated:true completion:nil];
+
 }
 
 @end
